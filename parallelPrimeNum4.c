@@ -63,6 +63,5 @@ int main(int argc, char *argv[])
 
     printf("Parallel (%d threads): %d primes, %f sec\n",
            threads, count, t1 - t0);
-
     return 0;
 }
