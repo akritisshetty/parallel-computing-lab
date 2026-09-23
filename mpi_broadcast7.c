@@ -1,22 +1,31 @@
-#include<stdio.h>
-#include<mpi.h>
+#include <stdio.h>
+#include <mpi.h>
 
 int main(int argc, char *argv[]) {
-	int rank;
-	int data = 45;
-	
-	MPI_Init(&argc, &argv);
-	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	
-	if(rank == 0) {
-		printf("Process %d is broadcasting data = %d\n", rank, data);
-	}	
-	
-	MPI_Bcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD);
-	printf("Process %d received data = %d\n", rank, data);
-	
-	MPI_Finalize();
-	return 0;
+    int rank, size;
+    int data = 0;
+
+    MPI_Init(&argc, &argv);
+
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    if (rank == 0) {
+        printf("Enter data to be sent: ");
+        fflush(stdout);
+
+        scanf("%d", &data);
+
+        printf("Process %d is broadcasting data = %d\n", rank, data);
+        fflush(stdout);
+    }
+
+    MPI_Bcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD);
+
+    printf("Process %d received data = %d\n", rank, data);
+    fflush(stdout);
+
+    MPI_Finalize();
+
+    return 0;
 }
-
-
