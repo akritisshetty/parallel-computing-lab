@@ -8,3 +8,5 @@ b. Thread 1 : Iterations 2 −− 3 <br>
 3. Write a OpenMP program to calculate n Fibonacci numbers using tasks. <br>
 4. Write a OpenMP program to find the prime numbers from 1 to n employing parallel for directive. Record both serial and parallel execution times. <br>
 5. Write a MPI Program for demonstration of MPI_Send and MPI_Recv.
+6. Write a MPI Program to demonstration of Broadcast operation.<br>
+7. Write a MPI Program demonstration of MPI_Scatter and MPI_Gather. <br>
